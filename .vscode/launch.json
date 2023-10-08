@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "preLaunchTask": "pnpm: build with source-maps",
+      "skipFiles": ["<node_internals>/**"],
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["start"],
+      "envFile": "${workspaceFolder}/.env",
+      "killBehavior": "polite"
+    }
+  ]
+}
