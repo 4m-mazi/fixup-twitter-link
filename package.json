@@ -1,6 +1,7 @@
 {
   "name": "fixup-twitter-link",
   "main": "dist/main.js",
+  "type": "module",
   "scripts": {
     "start": "node .",
     "dev": "node -r dotenv/config . dotenv_config_override=true",
