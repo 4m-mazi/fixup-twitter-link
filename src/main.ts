@@ -79,7 +79,7 @@ client.on(
             tweet.media?.mosaic?.formats?.webp ?? tweet.media?.photos?.[0]?.url,
         },
         author: {
-          name: tweet.author.name,
+          name: tweet.author.name + `(@${tweet.author.screen_name})`,
           url: tweet.author.url,
           icon_url: tweet.author.avatar_url,
         },
