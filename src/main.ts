@@ -97,6 +97,12 @@ client.on(
       embeds: embeds,
       content: fixupxLinks.join("\n"),
       message_reference: ref,
+      allowed_mentions: {
+        parse: [],
+        roles: [],
+        users: [],
+        replied_user: false,
+      },
     });
   }
 );
