@@ -1,25 +1,30 @@
-FROM ubuntu:rolling@sha256:f1090cfa89ab321a6d670e79652f61593502591f2fc7452fb0b7c6da575729c4 as depender
+# syntax=docker/dockerfile:1
 
-ARG APT_MIRROR="ftp.jaist.ac.jp/pub/Linux"
-RUN sed -i "s@archive.ubuntu.com@${APT_MIRROR}@g" /etc/apt/sources.list
-RUN rm -f /etc/apt/apt.conf.d/docker-clean; echo 'Binary::apt::APT::Keep-Downloaded-Packages "true";' > /etc/apt/apt.conf.d/keep-cache
-RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
-    --mount=type=cache,target=/var/lib/apt,sharing=locked \
-    apt update && apt-get -y --no-install-recommends install ca-certificates curl jq
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
+FROM ghcr.io/jqlang/jq:1.7@sha256:12f998e5a6f3f6916f744ba6f01549f156f624b42f7564e67ec6dd4733973146 as fetch-jq
+
+FROM quay.io/curl/curl-base:8.4.0@sha256:36f04935213478584f0232e3e6d226a8b803cd98477bd20f89aec913c2450532 as fetch-pnpm
+WORKDIR /dist
+RUN --mount=type=bind,source=package.json,target=package.json \
+    --mount=type=bind,from=fetch-jq,source=/jq,target=/mounted-bin/jq \
+    curl -fsSL --compressed https://get.pnpm.io/install.sh | sed '/setup --force/d' | sed 's|chmod +x "$tmp_dir/pnpm"|install "$tmp_dir/pnpm" pnpm|' | env PNPM_VERSION=$(cat package.json  | /mounted-bin/jq -r .packageManager | grep -oE '[0-9]+\.[0-9]+\.[0-9]+') sh -
+
+FROM ubuntu:devel as depender
+ENV SHELL="sh"
+ENV ENV="/tmp/env"
 ARG NODE_ENV="production"
 RUN mkdir /pnpm
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
 WORKDIR /package
-COPY .npmrc package.json ./
-RUN curl -fsSL --compressed https://get.pnpm.io/install.sh | env PNPM_VERSION=$(cat package.json  | jq -r .packageManager | grep -oP '\d+\.\d+\.\d+') bash - \
+RUN --mount=type=bind,from=fetch-pnpm,source=/dist/pnpm,target=/mounted-bin/pnpm \
+    /mounted-bin/pnpm setup --force \
     && pnpm config set store-dir /.pnpm-store
+COPY .npmrc package.json ./
 RUN --mount=type=cache,target=/.pnpm-store \
     --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
     pnpm install --frozen-lockfile
 
 FROM depender as builder
-
 ARG NODE_ENV="development"
 RUN --mount=type=cache,target=/.pnpm-store \
     --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
@@ -29,7 +34,6 @@ RUN --mount=type=bind,source=src/,target=src/ \
     pnpm build
 
 FROM gcr.io/distroless/cc-debian12:nonroot@sha256:0a944ba09780b6a4e7a8f30287f88a70d7914ad2ba878233ff8cfffb7479158c
-
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 ENV NODE_ENV="production"
