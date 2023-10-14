@@ -1,5 +1,5 @@
 {
-  "$schema": ["https://json.schemastore.org/eslintrc"],
+  "$schema": "https://json.schemastore.org/eslintrc",
   "root": true,
   "extends": [
     "eslint:recommended",
