@@ -1,17 +1,16 @@
 import {
+  type APIEmbed,
+  type APIMessageReferenceSend,
   Client,
   GatewayDispatchEvents,
   GatewayIntentBits,
   MessageFlags,
-  type APIEmbed,
-  type APIMessageReferenceSend,
 } from "@discordjs/core";
 import { REST } from "@discordjs/rest";
 import { WebSocketManager } from "@discordjs/ws";
 
-const token =
-  process.env.DISCORD_TOKEN ??
-  (() => {
+const token = process.env.DISCORD_TOKEN
+  ?? (() => {
     throw new Error("DISCORD_TOKEN is not defined");
   })();
 
@@ -36,7 +35,7 @@ client.on(
 
     // Linkの取得
     const TwitterOrXlinks = message.content.matchAll(
-      /https?:\/\/(?:www\.)?(?:x|twitter)\.com\/[^/]+\/status\/(?<id>\d+)/g
+      /https?:\/\/(?:www\.)?(?:x|twitter)\.com\/[^/]+\/status\/(?<id>\d+)/g,
     );
 
     // match結果からidを取得
@@ -47,11 +46,7 @@ client.on(
 
     // APIの呼び出し
     const responses = await Promise.all(
-      ids.map((id) =>
-        fetch(`https://api.fxtwitter.com/status/${id}/`).then((res) =>
-          res.json()
-        )
-      )
+      ids.map((id) => fetch(`https://api.fxtwitter.com/status/${id}/`).then((res) => res.json())),
     );
 
     // TwitterのOGPを削除する
@@ -75,8 +70,7 @@ client.on(
           text: `𝕏 - 返信 ${tweet.replies} · リポスト ${tweet.retweets} · いいね ${tweet.likes}`,
         },
         image: {
-          url:
-            tweet.media?.mosaic?.formats?.webp ?? tweet.media?.photos?.[0]?.url,
+          url: tweet.media?.mosaic?.formats?.webp ?? tweet.media?.photos?.[0]?.url,
         },
         author: {
           name: tweet.author.name + `(@${tweet.author.screen_name})`,
@@ -104,7 +98,7 @@ client.on(
         replied_user: false,
       },
     });
-  }
+  },
 );
 
 // Listen for the ready event

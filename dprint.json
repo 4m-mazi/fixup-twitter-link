@@ -5,7 +5,8 @@
   "dockerfile": {},
   "excludes": [
     "**/node_modules",
-    "**/*-lock.json"
+    "**/*-lock.json",
+    "./Dockerfile"
   ],
   "plugins": [
     "https://plugins.dprint.dev/typescript-0.88.1.wasm",
