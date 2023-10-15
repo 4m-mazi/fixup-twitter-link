@@ -8,7 +8,7 @@ RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,from=fetch-jq,source=/jq,target=/mounted-bin/jq \
     curl -fsSL --compressed https://get.pnpm.io/install.sh | sed '/setup --force/d' | sed 's|chmod +x "$tmp_dir/pnpm"|install "$tmp_dir/pnpm" pnpm|' | env PNPM_VERSION=$(cat package.json  | /mounted-bin/jq -r .packageManager | grep -oE '[0-9]+\.[0-9]+\.[0-9]+') sh -
 
-FROM ubuntu:devel as depender
+FROM ubuntu:devel@sha256:282510723f2be541c2facce0f7e918641bedd90936f8a76f6f38b7110e299d5c as depender
 ENV SHELL="sh"
 ENV ENV="/tmp/env"
 ARG NODE_ENV="production"
