@@ -56,7 +56,7 @@ client.on(
 
     // Embedsの作成
     let fixupxLinks: string[] = [];
-    const embeds = responses.flatMap((r) => {
+    const embeds = responses.flatMap((r: any) => {
       const tweet = r.tweet;
       if (tweet.poll || tweet.media?.videos || tweet.quote) {
         fixupxLinks.push(`[_ ︎ _](https://fixupx.com/status/${tweet.id})`);
