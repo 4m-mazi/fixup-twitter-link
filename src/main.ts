@@ -105,7 +105,9 @@ client.on(
 );
 
 // Listen for the ready event
-client.once(GatewayDispatchEvents.Ready, () => { console.log("Ready!"); });
+client.once(GatewayDispatchEvents.Ready, () => {
+  console.log("Ready!");
+});
 
 // Start the WebSocket connection.
 await gateway.connect();
