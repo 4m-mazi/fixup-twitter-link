@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   type APIEmbed,
   type APIMessageReferenceSend,
@@ -55,7 +58,7 @@ client.on(
     });
 
     // Embedsの作成
-    let fixupxLinks: string[] = [];
+    const fixupxLinks: string[] = [];
     const embeds = responses.flatMap((r: any) => {
       const tweet = r.tweet;
       if (tweet.poll || tweet.media?.videos || tweet.quote) {
@@ -102,7 +105,7 @@ client.on(
 );
 
 // Listen for the ready event
-client.once(GatewayDispatchEvents.Ready, () => console.log("Ready!"));
+client.once(GatewayDispatchEvents.Ready, () => { console.log("Ready!"); });
 
 // Start the WebSocket connection.
-gateway.connect();
+await gateway.connect();
