@@ -8,6 +8,8 @@
     "build": "swc src --only **/*.ts --out-dir dist",
     "build:debug": "swc --source-maps=true src --out-dir=dist",
     "type:check": "tsc --noEmit",
+    "lint": "eslint --cache .",
+    "lint:fix": "eslint --fix --cache .",
     "format": "dprint fmt",
     "format:check": "dprint check"
   },
