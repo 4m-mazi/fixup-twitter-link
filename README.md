@@ -9,4 +9,4 @@ Twitter のリンクを Discord に貼って OGP を表示できるようにす�
 1. bot を招待する
    [招待リンク](https://discord.com/api/oauth2/authorize?client_id=1160624929306325103&permissions=274877933568&scope=bot)
 
-3. ツイートの投稿を貼り付ける
+2. ツイートの投稿を貼り付ける
