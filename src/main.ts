@@ -62,7 +62,7 @@ client.on(
     const embeds = responses.flatMap((r: any) => {
       const tweet = r.tweet;
       if (tweet.poll || tweet.media?.videos || tweet.quote) {
-        fixupxLinks.push(`[_ ︎ _](https://fixupx.com/status/${tweet.id})`);
+        fixupxLinks.push(`[_\u{fe0e} _](https://fixupx.com/status/${tweet.id})`);
         return []; // 動画や投票、引用のある場合はEmbedを作成しない
       }
 
@@ -70,7 +70,7 @@ client.on(
         description: tweet.text + `\n\n<t:${tweet.created_timestamp}:R>`,
         color: 0x000,
         footer: {
-          text: `𝕏 - 返信 ${tweet.replies} · リポスト ${tweet.retweets} · いいね ${tweet.likes}`,
+          text: `\u{1d54f} - 返信 ${tweet.replies} · リポスト ${tweet.retweets} · いいね ${tweet.likes}`,
         },
         image: {
           url: tweet.media?.mosaic?.formats?.webp ?? tweet.media?.photos?.[0]?.url,
