@@ -5,8 +5,8 @@
   "scripts": {
     "start": "node .",
     "dev": "node -r dotenv/config . dotenv_config_override=true",
-    "build": "swc src --only **/*.ts --out-dir dist && pnpm sentry:sourcemaps && pnpm sentry:sourcemaps",
-    "build:debug": "swc --source-maps=true src --out-dir=dist && pnpm sentry:sourcemaps",
+    "build": "swc src --only **/*.ts --out-dir dist && node -e '!fs.existsSync(\".sentryclirc\") || process.exit(1)' || pnpm sentry:sourcemaps",
+    "build:debug": "swc --source-maps=true src --out-dir=dist && node -e '!fs.existsSync(\".sentryclirc\") || process.exit(1)' || pnpm sentry:sourcemaps",
     "type:check": "tsc --noEmit",
     "lint": "eslint --cache ./src",
     "lint:fix": "eslint --fix --cache ./src",
