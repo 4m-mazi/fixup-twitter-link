@@ -2,18 +2,20 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  type APIEmbed,
-  type APIMessageReferenceSend,
   Client,
   GatewayDispatchEvents,
   GatewayIntentBits,
   MessageFlags,
+  type APIMessageReferenceSend,
 } from "@discordjs/core";
 import { REST } from "@discordjs/rest";
 import { WebSocketManager } from "@discordjs/ws";
+import { createEmbeds } from "./createEmbeds.js";
+import Sentry, { transaction } from "./lib/sentry.js";
 
-const token = process.env.DISCORD_TOKEN
-  ?? (() => {
+const token =
+  process.env.DISCORD_TOKEN ??
+  (() => {
     throw new Error("DISCORD_TOKEN is not defined");
   })();
 
@@ -36,72 +38,37 @@ client.on(
       return;
     }
 
-    // Linkの取得
-    const TwitterOrXlinks = message.content.matchAll(
-      /https?:\/\/(?:www\.)?(?:x|twitter)\.com\/[^/]+\/status\/(?<id>\d+)/g,
-    );
+    try {
+      const { embeds, fixupxLinks } = await createEmbeds(message.content);
 
-    // match結果からidを取得
-    const ids = [...TwitterOrXlinks].map((match) => match.groups?.["id"]);
-    if (ids.length === 0) {
-      return;
-    }
+      // TwitterのOGPを削除する
+      await api.channels.editMessage(message.channel_id, message.id, {
+        flags: MessageFlags.SuppressEmbeds,
+      });
 
-    // APIの呼び出し
-    const responses = await Promise.all(
-      ids.map((id) => fetch(`https://api.fxtwitter.com/status/${id}/`).then((res) => res.json())),
-    );
-
-    // TwitterのOGPを削除する
-    await api.channels.editMessage(message.channel_id, message.id, {
-      flags: MessageFlags.SuppressEmbeds,
-    });
-
-    // Embedsの作成
-    const fixupxLinks: string[] = [];
-    const embeds = responses.flatMap((r: any) => {
-      const tweet = r.tweet;
-      if (tweet.poll || tweet.media?.videos || tweet.quote) {
-        fixupxLinks.push(`[_\u{fe0e} _](https://fixupx.com/status/${tweet.id})`);
-        return []; // 動画や投票、引用のある場合はEmbedを作成しない
-      }
-
-      const embed: APIEmbed = {
-        description: tweet.text + `\n\n<t:${tweet.created_timestamp}:R>`,
-        color: 0x000,
-        footer: {
-          text: `\u{1d54f} - 返信 ${tweet.replies} · リポスト ${tweet.retweets} · いいね ${tweet.likes}`,
-        },
-        image: {
-          url: tweet.media?.mosaic?.formats?.webp ?? tweet.media?.photos?.[0]?.url,
-        },
-        author: {
-          name: tweet.author.name + `(@${tweet.author.screen_name})`,
-          url: tweet.author.url,
-          icon_url: tweet.author.avatar_url,
-        },
+      // 返信
+      const ref: APIMessageReferenceSend = {
+        channel_id: message.channel_id,
+        message_id: message.id,
       };
-      return embed;
-    });
 
-    // 返信
-    const ref: APIMessageReferenceSend = {
-      channel_id: message.channel_id,
-      message_id: message.id,
-    };
-
-    await api.channels.createMessage(message.channel_id, {
-      embeds: embeds,
-      content: fixupxLinks.join("\n"),
-      message_reference: ref,
-      allowed_mentions: {
-        parse: [],
-        roles: [],
-        users: [],
-        replied_user: false,
-      },
-    });
-  },
+      await api.channels.createMessage(message.channel_id, {
+        embeds: embeds,
+        content: fixupxLinks.join("\n"),
+        message_reference: ref,
+        allowed_mentions: {
+          parse: [],
+          roles: [],
+          users: [],
+          replied_user: false,
+        },
+      });
+    } catch (e) {
+      Sentry.captureException(e);
+    } finally {
+      transaction.finish();
+    }
+  }
 );
 
 // Listen for the ready event
