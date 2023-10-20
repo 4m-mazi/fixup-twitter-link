@@ -4,10 +4,9 @@
     "noEmit": true,
     "composite": true,
     "outDir": "cli-incremental-info",
-
     "verbatimModuleSyntax": true,
-
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "allowImportingTsExtensions": true
   },
   "include": ["src/**/*", "tests/**/*"]
 }
