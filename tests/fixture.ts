@@ -6,11 +6,9 @@ export const tweetFixture = {
     id: "936319067505410048",
     name: "はるかダディー",
     screen_name: "kcash510",
-    avatar_url:
-      "https://pbs.twimg.com/profile_images/1676935943499165696/CQfBVnXa_200x200.jpg",
+    avatar_url: "https://pbs.twimg.com/profile_images/1676935943499165696/CQfBVnXa_200x200.jpg",
     avatar_color: null,
-    banner_url:
-      "https://pbs.twimg.com/profile_banners/936319067505410048/1603165823",
+    banner_url: "https://pbs.twimg.com/profile_banners/936319067505410048/1603165823",
     description:
       "おもろそうな事はやってみることに決めた26歳プログラマー🫣エンジニアと緩く繋がるDiscordサーバー作ってます。",
     location: "しょうもない事に全力注ぐ人が好きです",

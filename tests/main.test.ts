@@ -39,13 +39,12 @@ describe("fixup twitter link", () => {
         author: {
           name: "はるかダディー(@kcash510)",
           url: "https://pbs.twimg.com/profile_images/1676935943499165696/CQfBVnXa_200x200.jpg",
-          icon_url:
-            "https://pbs.twimg.com/profile_images/1676935943499165696/CQfBVnXa_200x200.jpg",
+          icon_url: "https://pbs.twimg.com/profile_images/1676935943499165696/CQfBVnXa_200x200.jpg",
         },
       },
     ];
     const { embeds, fixupxLinks } = await createEmbeds(
-      "https://twitter.com/kcash510/status/1715221671974682986"
+      "https://twitter.com/kcash510/status/1715221671974682986",
     );
 
     expect(embeds).toEqual(expected);

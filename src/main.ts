@@ -1,18 +1,17 @@
 import {
+  type APIMessageReferenceSend,
   Client,
   GatewayDispatchEvents,
   GatewayIntentBits,
   MessageFlags,
-  type APIMessageReferenceSend,
 } from "@discordjs/core";
 import { REST } from "@discordjs/rest";
 import { WebSocketManager } from "@discordjs/ws";
 import { createEmbeds } from "./createEmbeds.js";
 import Sentry, { transaction } from "./lib/sentry.js";
 
-const token =
-  process.env.DISCORD_TOKEN ??
-  (() => {
+const token = process.env.DISCORD_TOKEN
+  ?? (() => {
     throw new Error("DISCORD_TOKEN is not defined");
   })();
 
@@ -65,7 +64,7 @@ client.on(
     } finally {
       transaction.finish();
     }
-  }
+  },
 );
 
 // Listen for the ready event

@@ -2,11 +2,11 @@ import type { APIEmbed } from "@discordjs/core";
 import type { APITweetResponse } from "./types.ts";
 
 export const createEmbeds = async (
-  content: string
+  content: string,
 ): Promise<{ embeds: APIEmbed[]; fixupxLinks: string[] }> => {
   // Linkの取得
   const TwitterOrXlinks = content.matchAll(
-    /https?:\/\/(?:www\.)?(?:x|twitter)\.com\/[^/]+\/status\/(?<id>\d+)/g
+    /https?:\/\/(?:www\.)?(?:x|twitter)\.com\/[^/]+\/status\/(?<id>\d+)/g,
   );
 
   // match結果からidを取得
@@ -23,7 +23,7 @@ export const createEmbeds = async (
         .then((data) => {
           return (data as APITweetResponse).tweet;
         })
-    )
+    ),
   );
 
   // Embedsの作成
@@ -41,10 +41,9 @@ export const createEmbeds = async (
         text: `𝕏 - 返信 ${tweet.replies} · リポスト ${tweet.retweets} · いいね ${tweet.likes}`,
       },
       image: {
-        url:
-          tweet.media?.mosaic?.formats.webp ??
-          tweet.media?.photos?.[0]?.url ??
-          "",
+        url: tweet.media?.mosaic?.formats.webp
+          ?? tweet.media?.photos?.[0]?.url
+          ?? "",
       },
       author: {
         name: tweet.author.name + `(@${tweet.author.screen_name})`,
