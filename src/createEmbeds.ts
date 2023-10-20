@@ -20,17 +20,16 @@ export const createEmbeds = async (
     ids.map((id) =>
       fetch(`https://api.fxtwitter.com/status/${id}/`)
         .then((res) => res.json())
-        .then((data: APITweetResponse) => {
-          console.log(JSON.stringify(data));
-          return data.tweet;
+        .then((data) => {
+          return (data as APITweetResponse).tweet;
         })
     )
   );
 
   // Embedsの作成
-  let fixupxLinks: string[] = [];
+  const fixupxLinks: string[] = [];
   const embeds = responses.flatMap((tweet) => {
-    if (tweet.poll || tweet.media?.videos || tweet.quote) {
+    if (tweet.poll ?? tweet.media?.videos ?? tweet.quote) {
       fixupxLinks.push(`[_ ︎ _](https://fixupx.com/status/${tweet.id})`);
       return []; // 動画や投票、引用のある場合はEmbedを作成しない
     }
@@ -43,7 +42,7 @@ export const createEmbeds = async (
       },
       image: {
         url:
-          tweet.media?.mosaic?.formats?.webp ??
+          tweet.media?.mosaic?.formats.webp ??
           tweet.media?.photos?.[0]?.url ??
           "",
       },

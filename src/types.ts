@@ -1,11 +1,11 @@
-export type APITweetResponse = {
+export interface APITweetResponse {
   code: number;
   message: string;
   tweet: APITweet;
-};
+}
 
 // The container of all the information for a Tweet
-type APITweet = {
+interface APITweet {
   id: string;
   url: string;
   text: string;
@@ -31,10 +31,10 @@ type APITweet = {
     mosaic?: APIMosaicPhoto;
   };
   source: string;
-};
+}
 
 // Information about the author of a tweet
-type APIAuthor = {
+interface APIAuthor {
   id?: string;
   name: string;
   screen_name: string;
@@ -42,49 +42,49 @@ type APIAuthor = {
   avatar_color?: string | null;
   banner_url?: string;
   description?: string;
-};
+}
 
 // Data for a single photo in a Tweet
-type APIPhoto = {
+interface APIPhoto {
   type: "photo";
   url: string;
   width: number;
   height: number;
-};
+}
 
 // Data for a poll on a given Tweet
-type APIPoll = {
+interface APIPoll {
   choices: APIPollChoice[];
   total_votes: number;
   ends_at: string;
   time_left_en: string;
-};
+}
 
 // Data for a single choice in a poll
-type APIPollChoice = {
+interface APIPollChoice {
   label: string;
   count: number;
   percentage: number;
-};
+}
 
 // Information about a requested translation for a Tweet, when asked.
-type APITranslate = {
+interface APITranslate {
   text: string;
   source_lang: string;
   target_lang: string;
-};
+}
 
 // Data for external media, currently only video.
-type APIExternalMedia = {
+interface APIExternalMedia {
   type: string;
   url: string;
   height: number;
   width: number;
   duration: number;
-};
+}
 
 // Data for the mosaic service, which stitches photos together
-type APIMosaicPhoto = {
+interface APIMosaicPhoto {
   type: "mosaic_photo";
   width: number;
   height: number;
@@ -92,14 +92,14 @@ type APIMosaicPhoto = {
     webp: string;
     jpeg: string;
   };
-};
+}
 
 // Data for a Tweet's video
-type APIVideo = {
+interface APIVideo {
   type: "video" | "gif";
   url: string;
   thumbnail_url: string;
   width: number;
   height: number;
   format: string;
-};
+}
