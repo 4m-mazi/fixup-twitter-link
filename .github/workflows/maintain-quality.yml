@@ -41,3 +41,5 @@ jobs:
         run: pnpm lint
       - name: Check format
         run: pnpm format:check
+      - name: Test
+        run: pnpm test
