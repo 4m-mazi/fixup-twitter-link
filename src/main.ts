@@ -37,6 +37,8 @@ client.on(
     try {
       const { embeds, fixupxLinks } = await createEmbeds(message.content);
 
+      if (embeds.length === 0 && fixupxLinks.length === 0) return;
+
       // TwitterのOGPを削除する
       await api.channels.editMessage(message.channel_id, message.id, {
         flags: MessageFlags.SuppressEmbeds,
