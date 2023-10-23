@@ -21,18 +21,20 @@ export const createEmbeds = async (
       fetch(`https://api.fxtwitter.com/status/${id}/`)
         .then((res) => res.json())
         .then((data) => {
-          return (data as APITweetResponse).tweet;
+          return (data as APITweetResponse | undefined)?.tweet;
         })
     ),
   );
-  console.log(responses);
 
   // Embedsの作成
   const fixupxLinks: string[] = [];
   const embeds = responses
-    .filter((res) => res !== undefined) // たまに404が返ってくるので弾く
     .flatMap(
       (tweet) => {
+        if (!tweet) {
+          return [];
+        }
+
         if (tweet.poll ?? tweet.media?.videos ?? tweet.quote) {
           fixupxLinks.push(`[_ ︎ _](https://fixupx.com/status/${tweet.id})`);
           return []; // 動画や投票、引用のある場合はEmbedを作成しない

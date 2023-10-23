@@ -56,6 +56,21 @@ describe("fixup twitter link", () => {
     const result = await createEmbeds("テストな文字列");
     expect(result).toEqual(expected);
   });
+  it("APIが取得できない時は何も返さない", async () => {
+    mockFetch = jest.spyOn(global, "fetch").mockImplementation(() =>
+      Promise.resolve({
+        ok: true,
+        json: () =>
+          Promise.resolve({
+            code: 404,
+            message: "Not Found",
+          }),
+      } as Response)
+    );
+    const expected = { embeds: [], fixupxLinks: [] };
+    const result = await createEmbeds("https://twitter.com/kcash510/status/1715221671974682986");
+    expect(result).toEqual(expected);
+  });
 
   it.todo("ツイートに動画がある投稿");
 });
