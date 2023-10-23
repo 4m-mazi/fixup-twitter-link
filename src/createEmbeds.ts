@@ -25,33 +25,38 @@ export const createEmbeds = async (
         })
     ),
   );
+  console.log(responses);
 
   // Embedsの作成
   const fixupxLinks: string[] = [];
-  const embeds = responses.flatMap((tweet) => {
-    if (tweet.poll ?? tweet.media?.videos ?? tweet.quote) {
-      fixupxLinks.push(`[_ ︎ _](https://fixupx.com/status/${tweet.id})`);
-      return []; // 動画や投票、引用のある場合はEmbedを作成しない
-    }
+  const embeds = responses
+    .filter((res) => res !== undefined) // たまに404が返ってくるので弾く
+    .flatMap(
+      (tweet) => {
+        if (tweet.poll ?? tweet.media?.videos ?? tweet.quote) {
+          fixupxLinks.push(`[_ ︎ _](https://fixupx.com/status/${tweet.id})`);
+          return []; // 動画や投票、引用のある場合はEmbedを作成しない
+        }
 
-    const embed: APIEmbed = {
-      description: tweet.text + `\n\n<t:${tweet.created_timestamp}:R>`,
-      color: 0x000,
-      footer: {
-        text: `𝕏 - 返信 ${tweet.replies} · リポスト ${tweet.retweets} · いいね ${tweet.likes}`,
+        const embed: APIEmbed = {
+          description: tweet.text + `\n\n<t:${tweet.created_timestamp}:R>`,
+          color: 0x000,
+          footer: {
+            text: `𝕏 - 返信 ${tweet.replies} · リポスト ${tweet.retweets} · いいね ${tweet.likes}`,
+          },
+          image: {
+            url: tweet.media?.mosaic?.formats.webp
+              ?? tweet.media?.photos?.[0]?.url
+              ?? "",
+          },
+          author: {
+            name: tweet.author.name + `(@${tweet.author.screen_name})`,
+            url: tweet.author.avatar_url ?? "",
+            icon_url: tweet.author.avatar_url ?? "",
+          },
+        };
+        return embed;
       },
-      image: {
-        url: tweet.media?.mosaic?.formats.webp
-          ?? tweet.media?.photos?.[0]?.url
-          ?? "",
-      },
-      author: {
-        name: tweet.author.name + `(@${tweet.author.screen_name})`,
-        url: tweet.author.avatar_url ?? "",
-        icon_url: tweet.author.avatar_url ?? "",
-      },
-    };
-    return embed;
-  });
+    );
   return { embeds, fixupxLinks };
 };
