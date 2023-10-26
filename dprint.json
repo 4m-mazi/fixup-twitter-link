@@ -4,6 +4,7 @@
   "markdown": {},
   "dockerfile": {},
   "excludes": [
+    "./.git",
     "**/node_modules",
     "**/*-lock.json",
     "./Dockerfile"
