@@ -52,7 +52,7 @@ client.on(
 
       await api.channels.createMessage(message.channel_id, {
         embeds: embeds,
-        content: fixupxLinks.join("\n"),
+        content: fixupxLinks.join(""),
         message_reference: ref,
         allowed_mentions: {
           parse: [],
