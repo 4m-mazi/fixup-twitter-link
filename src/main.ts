@@ -1,12 +1,17 @@
 import {
+  type APIInteraction,
+  type APIMessageApplicationCommandInteraction,
   type APIMessageReferenceSend,
+  ApplicationCommandType,
   Client,
   GatewayDispatchEvents,
   GatewayIntentBits,
+  InteractionType,
   MessageFlags,
 } from "@discordjs/core";
 import { REST } from "@discordjs/rest";
 import { WebSocketManager } from "@discordjs/ws";
+import { commandsRegister, messageCommandsHandler } from "./commands/index.js";
 import { createEmbeds } from "./createEmbeds.js";
 import Sentry, { transaction } from "./lib/sentry.js";
 
@@ -69,8 +74,19 @@ client.on(
   },
 );
 
+client.on(GatewayDispatchEvents.InteractionCreate, async ({ data: interaction, api }) => {
+  const isMessageCommand = (interaction: APIInteraction): interaction is APIMessageApplicationCommandInteraction =>
+    interaction.type === InteractionType.ApplicationCommand
+    && interaction.data.type === ApplicationCommandType.Message;
+  if (
+    !isMessageCommand(interaction)
+  ) return;
+  await messageCommandsHandler({ interaction, api });
+});
+
 // Listen for the ready event
-client.once(GatewayDispatchEvents.Ready, () => {
+client.once(GatewayDispatchEvents.Ready, async ({ data: readyData, api }) => {
+  await commandsRegister({ api, applicationId: readyData.application.id });
   console.log("Ready!");
 });
 
