@@ -14,7 +14,7 @@ import { DiscordAPIError } from "@discordjs/rest";
 const data: RESTPostAPIContextMenuApplicationCommandsJSONBody = {
   name: "Delete tweet previews",
   name_localizations: {
-    ja: "ツイートプレビューを消す",
+    ja: "削除する",
   },
   type: ApplicationCommandType.Message,
 };
