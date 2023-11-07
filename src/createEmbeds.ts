@@ -10,7 +10,7 @@ export const createEmbeds = async (
   );
 
   // match結果からidを取得
-  const ids = [...TwitterOrXlinks].map((match) => match.groups?.["id"]);
+  const ids = Array.from(new Set(Array.from(TwitterOrXlinks, (match) => match.groups?.["id"])));
   if (ids.length === 0) {
     return { embeds: [], fixupxLinks: [] };
   }
