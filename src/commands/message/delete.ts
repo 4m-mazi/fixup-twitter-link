@@ -47,7 +47,12 @@ async function handle({ interaction, api }: {
   };
   if (!(await isDeletable(message))) {
     await api.interactions.followUp(interaction.application_id, interaction.token, {
-      content: "このメッセージは削除できません",
+      content: [
+        "😐",
+        "このコマンドの実行対象には、以下の制約があります。",
+        `1. <@${interaction.application_id}>によるメッセージであること`,
+        "1. あなたの送信したメッセージに対する返信であること",
+      ].join("\n"),
       flags: MessageFlags.Ephemeral,
     });
     return;
