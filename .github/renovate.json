@@ -18,7 +18,6 @@
   "assigneesFromCodeOwners": true,
   "dependencyDashboardAutoclose": true,
   "prConcurrentLimit": 3,
-  "reviewersFromCodeOwners": true,
   "customManagers": [
     {
       "customType": "regex",
