@@ -1,7 +1,7 @@
 import type { APIEmbed } from "@discordjs/core";
 import type { APITweet, APITweetResponse } from "./types.ts";
 
-const createDescriptin = (tweet: APITweet): string => {
+const createDescription = (tweet: APITweet): string => {
   const strings: string[] = [tweet.text.replaceAll(">", "\\>")];
   if (tweet.quote !== undefined) {
     strings.push(
@@ -55,7 +55,7 @@ export const createEmbeds = async (
         }
 
         const embed: APIEmbed = {
-          description: createDescriptin(tweet),
+          description: createDescription(tweet),
           color: 0x000,
           footer: {
             text: `𝕏 - 返信 ${tweet.replies} · リポスト ${tweet.retweets} · いいね ${tweet.likes}`,
