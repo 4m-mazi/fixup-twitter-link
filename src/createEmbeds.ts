@@ -41,7 +41,7 @@ export const createEmbeds = async (
         }
 
         const embed: APIEmbed = {
-          description: tweet.text + `\n\n<t:${tweet.created_timestamp}:R>`,
+          description: tweet.text + `\n\n[<t:${tweet.created_timestamp}:R>        ](${tweet.url})`, // モバイル版でタップする領域を確保するためにスペースが必要
           color: 0x000,
           footer: {
             text: `𝕏 - 返信 ${tweet.replies} · リポスト ${tweet.retweets} · いいね ${tweet.likes}`,

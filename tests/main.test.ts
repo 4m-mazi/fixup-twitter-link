@@ -28,7 +28,8 @@ describe("fixup twitter link", () => {
   it("ツイートに画像がない投稿", async () => {
     const expected: APIEmbed[] = [
       {
-        description: "nodeわからん" + `\n\n<t:1697775688:R>`,
+        description: "nodeわからん"
+          + `\n\n[<t:1697775688:R>        ](https://twitter.com/kcash510/status/1715221671974682986)`,
         color: 0x000,
         footer: {
           text: `𝕏 - 返信 0 · リポスト 0 · いいね 1`,
