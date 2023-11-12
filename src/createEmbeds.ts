@@ -18,7 +18,7 @@ export const createEmbeds = async (
   // APIの呼び出し
   const responses = await Promise.all(
     ids.map((id) =>
-      fetch(`https://api.fxtwitter.com/status/${id}/`)
+      fetch(`https://api.fxtwitter.com/status/${id}`)
         .then((res) => res.json())
         .then((data) => {
           return (data as APITweetResponse | undefined)?.tweet;
