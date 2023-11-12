@@ -42,7 +42,7 @@
     "@discordjs/collection": "2.0.0",
     "@discordjs/core": "1.0.1",
     "@discordjs/rest": "2.0.1",
-    "@discordjs/ws": "1.0.1",
+    "@discordjs/ws": "1.0.2",
     "@sentry/node": "7.80.0",
     "@sentry/profiling-node": "1.2.6"
   },
