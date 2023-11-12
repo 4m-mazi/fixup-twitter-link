@@ -29,6 +29,11 @@
   ],
   "packageRules": [
     {
+      "groupName": "discord.js monorepo",
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
+      "matchPackagePrefixes": ["@discordjs/"]
+    },
+    {
       "extends": ["monorepo:sentry-javascript"],
       "groupName": "sentry-javascript monorepo",
       "matchUpdateTypes": ["digest", "patch", "minor", "major"],
