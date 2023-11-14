@@ -43,7 +43,7 @@
     "@discordjs/core": "1.1.0",
     "@discordjs/rest": "2.1.0",
     "@discordjs/ws": "1.0.2",
-    "@sentry/node": "7.80.0",
+    "@sentry/node": "7.80.1",
     "@sentry/profiling-node": "1.2.6"
   },
   "private": true
