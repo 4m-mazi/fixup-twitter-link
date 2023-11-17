@@ -36,7 +36,10 @@ devDependencies:
     version: 0.1.63(@swc/core@1.3.96)
   '@swc/core':
     specifier: 1.3.96
-    version: 1.3.96
+    version: 1.3.96(@swc/helpers@0.5.3)
+  '@swc/helpers':
+    specifier: 0.5.3
+    version: 0.5.3
   '@swc/jest':
     specifier: 0.2.29
     version: 0.2.29(@swc/core@1.3.96)
@@ -1057,7 +1060,7 @@ packages:
         optional: true
     dependencies:
       '@mole-inc/bin-wrapper': 8.0.1
-      '@swc/core': 1.3.96
+      '@swc/core': 1.3.96(@swc/helpers@0.5.3)
       commander: 7.2.0
       fast-glob: 3.3.2
       semver: 7.5.4
@@ -1155,7 +1158,7 @@ packages:
     dev: true
     optional: true
 
-  /@swc/core@1.3.96:
+  /@swc/core@1.3.96(@swc/helpers@0.5.3):
     resolution: {integrity: sha512-zwE3TLgoZwJfQygdv2SdCK9mRLYluwDOM53I+dT6Z5ZvrgVENmY3txvWDvduzkV+/8IuvrRbVezMpxcojadRdQ==}
     engines: {node: '>=10'}
     requiresBuild: true
@@ -1166,6 +1169,7 @@ packages:
         optional: true
     dependencies:
       '@swc/counter': 0.1.2
+      '@swc/helpers': 0.5.3
       '@swc/types': 0.1.5
     optionalDependencies:
       '@swc/core-darwin-arm64': 1.3.96
@@ -1184,6 +1188,12 @@ packages:
     resolution: {integrity: sha512-9F4ys4C74eSTEUNndnER3VJ15oru2NumfQxS8geE+f3eB5xvfxpWyqE5XlVnxb/R14uoXi6SLbBwwiDSkv+XEw==}
     dev: true
 
+  /@swc/helpers@0.5.3:
+    resolution: {integrity: sha512-FaruWX6KdudYloq1AHD/4nU+UsMTdNE8CKyrseXWEcgjDAbvkwJg2QGPAnfIJLIWsjZOSPLOAykK6fuYp4vp4A==}
+    dependencies:
+      tslib: 2.6.2
+    dev: true
+
   /@swc/jest@0.2.29(@swc/core@1.3.96):
     resolution: {integrity: sha512-8reh5RvHBsSikDC3WGCd5ZTd2BXKkyOdK7QwynrCH58jk2cQFhhHhFBg/jvnWZehUQe/EoOImLENc9/DwbBFow==}
     engines: {npm: '>= 7.0.0'}
@@ -1191,7 +1201,7 @@ packages:
       '@swc/core': '*'
     dependencies:
       '@jest/create-cache-key-function': 27.5.1
-      '@swc/core': 1.3.96
+      '@swc/core': 1.3.96(@swc/helpers@0.5.3)
       jsonc-parser: 3.2.0
     dev: true
 
@@ -4222,7 +4232,6 @@ packages:
 
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
-    dev: false
 
   /type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
