@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
+import { afterEach, beforeEach, describe, expect, it, jest } from "@jest/globals";
+
 import type { APIEmbed } from "@discordjs/core";
 import { createEmbeds } from "../src/createEmbeds.ts";
 import { tweetFixture } from "./fixture.ts";
