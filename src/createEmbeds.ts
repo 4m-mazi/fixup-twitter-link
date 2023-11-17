@@ -1,7 +1,7 @@
 import type { APIEmbed } from "@discordjs/core";
 import type { APITweet, APITweetResponse } from "./types.ts";
 
-const createDescription = (tweet: APITweet): string => {
+const createDescription = ((tweet: APITweet) => {
   const strings: string[] = [tweet.text.replaceAll(">", "\\>")];
   if (tweet.quote !== undefined) {
     strings.push(
@@ -13,7 +13,7 @@ const createDescription = (tweet: APITweet): string => {
   }
   strings.push(`[<t:${tweet.created_timestamp}:R>        ](${tweet.url})`); // モバイル版でタップする領域を確保するためにスペースが必要
   return strings.join("\n\n");
-};
+}) satisfies (tweet: APITweet) => string;
 
 export const createEmbeds = async (
   content: string,
