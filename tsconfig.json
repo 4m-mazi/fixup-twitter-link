@@ -8,5 +8,5 @@
     "noImplicitAny": false,
     "allowImportingTsExtensions": true
   },
-  "include": ["src/**/*", "tests/**/*"]
+  "include": ["src/**/*", "src/__tests__/**/*"]
 }

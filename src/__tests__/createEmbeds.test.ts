@@ -3,8 +3,8 @@
 import { afterEach, beforeEach, describe, expect, it, jest } from "@jest/globals";
 
 import type { APIEmbed } from "@discordjs/core";
-import { createEmbeds } from "../src/createEmbeds.ts";
-import { tweetFixture } from "./fixture.ts";
+import { createEmbeds } from "../createEmbeds.ts";
+import { tweetFixture } from "./__fixtures__/fixture.ts";
 
 describe("fixup twitter link", () => {
   let mockFetch;
