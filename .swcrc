@@ -1,7 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/swcrc",
+  "env": {
+    "targets": "current node"
+  },
   "jsc": {
-    "target": "esnext",
     "parser": {
       "syntax": "typescript",
       "decorators": true,
