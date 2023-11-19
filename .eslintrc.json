@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/eslintrc",
   "root": true,
-  "ignorePatterns": ["dist/*"],
+  "ignorePatterns": ["cli-incremental-info", "coverage", "dist/*"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/strict-type-checked",
@@ -23,7 +23,7 @@
   "parserOptions": {
     "sourceType": "module",
     "ecmaVersion": 2023,
-    "project": true
+    "project": ["tsconfig.json", "tsconfig.*.json"]
   },
   "env": {
     "es2023": true,
