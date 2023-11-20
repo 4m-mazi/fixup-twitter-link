@@ -1,5 +1,19 @@
 import type { APIEmbed } from "@discordjs/core";
-import type { APITweetResponse } from "./types.ts";
+import type { APITweet, APITweetResponse } from "./types.ts";
+
+const createDescription = ((tweet: APITweet) => {
+  const strings: string[] = [tweet.text.replaceAll(">", "\\>")];
+  if (tweet.quote !== undefined) {
+    strings.push(
+      [
+        `[${tweet.quote.author.name}(@${tweet.quote.author.screen_name}) <t:${tweet.quote.created_timestamp}:R>](${tweet.quote.url})`,
+        tweet.quote.text,
+      ].join("\n").replaceAll(/^/gm, "> "),
+    );
+  }
+  strings.push(`[<t:${tweet.created_timestamp}:R>        ](${tweet.url})`); // モバイル版でタップする領域を確保するためにスペースが必要
+  return strings.join("\n\n");
+}) satisfies (tweet: APITweet) => string;
 
 export const createEmbeds = async (
   content: string,
@@ -35,14 +49,13 @@ export const createEmbeds = async (
           return [];
         }
 
-        if (tweet.poll ?? tweet.media?.videos ?? tweet.quote) {
+        if (tweet.poll ?? tweet.media?.videos) {
           fixupxLinks.push(`[_ ︎ _](https://fixupx.com/status/${tweet.id})`);
           return []; // 動画や投票、引用のある場合はEmbedを作成しない
         }
 
         const embed: APIEmbed = {
-          description: tweet.text.replaceAll(">", "\\>")
-            + `\n\n[<t:${tweet.created_timestamp}:R>        ](${tweet.url})`, // モバイル版でタップする領域を確保するためにスペースが必要
+          description: createDescription(tweet),
           color: 0x000,
           footer: {
             text: `𝕏 - 返信 ${tweet.replies} · リポスト ${tweet.retweets} · いいね ${tweet.likes}`,

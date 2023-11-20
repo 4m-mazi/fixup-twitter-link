@@ -5,7 +5,7 @@ export interface APITweetResponse {
 }
 
 // The container of all the information for a Tweet
-interface APITweet {
+export interface APITweet {
   id: string;
   url: string;
   text: string;
