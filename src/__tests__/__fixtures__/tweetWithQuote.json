@@ -1,0 +1,80 @@
+{
+  "code": 200,
+  "message": "OK",
+  "tweet": {
+    "url": "https://example.net/akira123/status/1234567890123456789",
+    "id": "1234567890123456789",
+    "text": "この本はとても面白かったからみんなにおすすめしたい\n感動と笑いとサスペンスが詰まってるよ\nhttps://example.jp/awesome-book",
+    "author": {
+      "id": "9876543210987654321",
+      "name": "あきら",
+      "screen_name": "akira123",
+      "avatar_url": "https://example.com/profile_images/1357924680135792468/CQfBVnXa_200x200.jpg",
+      "banner_url": "https://example.com/profile_banners/9876543210987654321/1603165823",
+      "description": "本が好きな学生です。趣味は読書とゲームと映画鑑賞。",
+      "location": "東京都",
+      "url": "https://example.net/akira123",
+      "followers": 371,
+      "following": 349,
+      "joined": "Thu Nov 30 19:40:36 +0000 2017",
+      "likes": 1164,
+      "website": {
+        "url": "https://example.com/akira123",
+        "display_url": "example.com/akira123"
+      },
+      "tweets": 2016,
+      "avatar_color": null
+    },
+    "replies": 0,
+    "retweets": 0,
+    "likes": 1,
+    "created_at": "Mon Nov 06 15:36:54 +0000 2023",
+    "created_timestamp": 1699285014,
+    "views": 350,
+    "is_note_tweet": false,
+    "lang": "ja",
+    "replying_to": null,
+    "replying_to_status": null,
+    "quote": {
+      "url": "https://example.net/taro456/status/2468135790246813579 ",
+      "id": "2468135790246813579 ",
+      "text": "今日は久しぶりに友達とカラオケに行ったよ\n楽しかったなあ\nhttps://example.jp/songs",
+      "author": {
+        "id": "1",
+        "name": "たろう",
+        "screen_name": "taro456",
+        "avatar_url": "https://example.com/profile_images/8641975320864197532/u62EkIGv_200x200.jpg",
+        "banner_url": "https://example.com/profile_banners/9753186420975318642/1657182584",
+        "description": "音楽が好きな会社員です。趣味はカラオケとギターと旅行。",
+        "location": "",
+        "url": "https://example.net/taro456",
+        "followers": 23258,
+        "following": 397,
+        "joined": "Tue Nov 19 04:47:38 +0000 2013",
+        "likes": 30639,
+        "website": {
+          "url": "https://example.com/taro456",
+          "display_url": "example.com/taro456"
+        },
+        "tweets": 6117,
+        "avatar_color": null
+      },
+      "replies": 3,
+      "retweets": 199,
+      "likes": 682,
+      "created_at": "Mon Nov 06 15:01:17 +0000 2023",
+      "created_timestamp": 1699282877,
+      "possibly_sensitive": false,
+      "views": 97957,
+      "is_note_tweet": false,
+      "lang": "ja",
+      "replying_to": null,
+      "replying_to_status": null,
+      "source": "Twitter for iPhone",
+      "twitter_card": "tweet",
+      "color": null
+    },
+    "source": "Twitter for iPhone",
+    "color": null
+  }
+}
