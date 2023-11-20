@@ -1,7 +1,7 @@
 import type { APIEmbed } from "@discordjs/core";
 import type { APITweet, APITweetResponse } from "./types.ts";
 
-const createDescription = ((tweet: APITweet) => {
+const createDescription = ((tweet) => {
   const strings: string[] = [tweet.text.replaceAll(">", "\\>")];
   if (tweet.quote !== undefined) {
     strings.push(
@@ -15,9 +15,9 @@ const createDescription = ((tweet: APITweet) => {
   return strings.join("\n\n");
 }) satisfies (tweet: APITweet) => string;
 
-export const createEmbeds = async (
-  content: string,
-): Promise<{ embeds: APIEmbed[]; fixupxLinks: string[] }> => {
+export const createEmbeds = (async (
+  content,
+) => {
   // Linkの取得
   const TwitterOrXlinks = content.matchAll(
     /https?:\/\/(?:www\.)?(?:x|twitter)\.com\/[^/]+\/status\/(?<id>\d+)/g,
@@ -54,7 +54,7 @@ export const createEmbeds = async (
           return []; // 動画や投票、引用のある場合はEmbedを作成しない
         }
 
-        const embed: APIEmbed = {
+        return {
           description: createDescription(tweet),
           color: 0x000,
           footer: {
@@ -70,9 +70,8 @@ export const createEmbeds = async (
             url: tweet.author.avatar_url ?? "",
             icon_url: tweet.author.avatar_url ?? "",
           },
-        };
-        return embed;
+        } satisfies APIEmbed;
       },
     );
   return { embeds, fixupxLinks };
-};
+}) satisfies (content: string) => Promise<{ embeds: APIEmbed[]; fixupxLinks: string[] }>;
