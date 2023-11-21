@@ -11,21 +11,18 @@ import { DiscordAPIError } from "@discordjs/rest";
 /**
  * `delete` command data.
  */
-const data: RESTPostAPIContextMenuApplicationCommandsJSONBody = {
+const data = {
   name: "Delete tweet previews",
   name_localizations: {
     ja: "削除する",
   },
   type: ApplicationCommandType.Message,
-};
+} satisfies RESTPostAPIContextMenuApplicationCommandsJSONBody;
 
 /**
  * handles `delete` command.
  */
-async function handle({ interaction, api }: {
-  interaction: APIMessageApplicationCommandInteraction;
-  api: API;
-}) {
+const handle = (async ({ interaction, api }) => {
   await api.interactions.defer(interaction.id, interaction.token, {
     flags: MessageFlags.Ephemeral,
   });
@@ -39,8 +36,8 @@ async function handle({ interaction, api }: {
       message.message_reference.message_id,
     ).catch((e) => {
       if (!(e instanceof DiscordAPIError && e.code === 10008)) throw e;
-      return;
-    });
+      return undefined;
+    }) satisfies APIMessage | undefined;
     if (referencedMessage === undefined) return true;
     if ([interaction.member?.user.id, interaction.user?.id].includes(referencedMessage.author.id)) return true;
     return false;
@@ -63,6 +60,9 @@ async function handle({ interaction, api }: {
     content: "削除しました",
     flags: MessageFlags.Ephemeral,
   });
-}
+}) satisfies ({ interaction, api }: {
+  interaction: APIMessageApplicationCommandInteraction;
+  api: API;
+}) => Promise<void>;
 
 export const deleteCommand = { data, handle };

@@ -50,10 +50,10 @@ client.on(
       });
 
       // 返信
-      const ref: APIMessageReferenceSend = {
+      const ref = {
         channel_id: message.channel_id,
         message_id: message.id,
-      };
+      } satisfies APIMessageReferenceSend;
 
       await api.channels.createMessage(message.channel_id, {
         embeds: embeds,
