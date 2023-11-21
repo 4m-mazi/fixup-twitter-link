@@ -89,7 +89,6 @@ describe("fixup twitter link", () => {
       fixupxLinks: [],
     };
     const result = await createEmbeds("https://twitter.com/kcash510/status/1715221671974682986");
-    console.dir(result, { depth: null });
     expect(result).toEqual(expected);
   });
 
