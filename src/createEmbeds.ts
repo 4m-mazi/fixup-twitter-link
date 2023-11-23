@@ -32,7 +32,11 @@ export const createEmbeds = (async (
   // APIの呼び出し
   const responses = await Promise.all(
     ids.map((id) =>
-      fetch(`https://api.fxtwitter.com/status/${id}`)
+      fetch(`https://api.fxtwitter.com/status/${id}`, {
+        headers: new Headers({
+          "User-Agent": "fixup-twitter-link-bot (+https://github.com/4m-mazi/fixup-twitter-link)",
+        }),
+      })
         .then((res) => res.json())
         .then((data) => {
           return (data as APITweetResponse | undefined)?.tweet;
