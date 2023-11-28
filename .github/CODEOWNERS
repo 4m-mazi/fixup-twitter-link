@@ -2,3 +2,4 @@
 
 package.json @mogyuchi
 pnpm-lock.yaml @mogyuchi
+.npmrc @mogyuchi
