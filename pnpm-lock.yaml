@@ -1035,14 +1035,6 @@ packages:
       - supports-color
     dev: true
 
-  /@sentry/core@7.86.0:
-    resolution: {integrity: sha512-SbLvqd1bRYzhDS42u7GMnmbDMfth/zRiLElQWbLK/shmuZzTcfQSwNNdF4Yj+VfjOkqPFgGmICHSHVUc9dh01g==}
-    engines: {node: '>=8'}
-    dependencies:
-      '@sentry/types': 7.86.0
-      '@sentry/utils': 7.86.0
-    dev: false
-
   /@sentry/core@7.87.0:
     resolution: {integrity: sha512-jkoXqK/nuYh8DYS+n7uaSuSIdw4HJemyRkXsWjAEPtEgD7taGMafZGbP5pl+XE38SE59jTBxmKnkUEZOFMgZGA==}
     engines: {node: '>=8'}
@@ -1051,13 +1043,13 @@ packages:
       '@sentry/utils': 7.87.0
     dev: false
 
-  /@sentry/hub@7.86.0:
-    resolution: {integrity: sha512-tS9g+yoD/Zs4OS/gCO4/ccT0m90o3brkCIm/gRzPqI5dq2hEE1qn8bF7HM/vLQARM+bsmTEzPzZy19104U5Btg==}
+  /@sentry/hub@7.87.0:
+    resolution: {integrity: sha512-8v4dc11cHIPVN0Rfmxvg1GXPCr2Cm4WksfYq6P0TnIGoG966rOATSJ0oEq4qlkn06LFVlYv/lV7La6SIrLx2eA==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/core': 7.86.0
-      '@sentry/types': 7.86.0
-      '@sentry/utils': 7.86.0
+      '@sentry/core': 7.87.0
+      '@sentry/types': 7.87.0
+      '@sentry/utils': 7.87.0
     dev: false
 
   /@sentry/node@7.87.0:
@@ -1079,11 +1071,11 @@ packages:
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@sentry/core': 7.86.0
-      '@sentry/hub': 7.86.0
+      '@sentry/core': 7.87.0
+      '@sentry/hub': 7.87.0
       '@sentry/node': 7.87.0
-      '@sentry/types': 7.86.0
-      '@sentry/utils': 7.86.0
+      '@sentry/types': 7.87.0
+      '@sentry/utils': 7.87.0
       detect-libc: 2.0.2
       node-abi: 3.52.0
       node-gyp: 9.4.1
@@ -1092,21 +1084,9 @@ packages:
       - supports-color
     dev: false
 
-  /@sentry/types@7.86.0:
-    resolution: {integrity: sha512-pGAt0+bMfWgo0KG2epthfNV4Wae03tURpoxNjGo5Fr4cXxvLTSijSAQ6rmmO4bXBJ7+rErEjX30g30o/eEdP9g==}
-    engines: {node: '>=8'}
-    dev: false
-
   /@sentry/types@7.87.0:
     resolution: {integrity: sha512-w8jKFHq/Llupmr2FezmFgQsnm3y/CnqLjb7s6PstI78E409wrhH7p7oqX/OEuzccH1qNCNwes/3QKvPTRQDB4Q==}
     engines: {node: '>=8'}
-    dev: false
-
-  /@sentry/utils@7.86.0:
-    resolution: {integrity: sha512-6PejFtw9VTFFy5vu0ks+U7Ozkqz+eMt+HN8AZKBKErYzX5/xs0kpkOcSRpu3ETdTYcZf8VAmLVgFgE2BE+3WuQ==}
-    engines: {node: '>=8'}
-    dependencies:
-      '@sentry/types': 7.86.0
     dev: false
 
   /@sentry/utils@7.87.0:
@@ -1810,7 +1790,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001568
+      caniuse-lite: 1.0.30001570
       electron-to-chromium: 1.4.611
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.2)
@@ -1885,8 +1865,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /caniuse-lite@1.0.30001568:
-    resolution: {integrity: sha512-vSUkH84HontZJ88MiNrOau1EBrCqEQYgkC5gIySiDlpsm8sGVrhU7Kx4V6h0tnqaHzIHZv08HlJIwPbL4XL9+A==}
+  /caniuse-lite@1.0.30001570:
+    resolution: {integrity: sha512-+3e0ASu4sw1SWaoCtvPeyXp+5PsjigkSt8OXZbF9StH5pQWbxEjLAZE3n8Aup5udop1uRiKA7a4utUk/uoSpUw==}
     dev: true
 
   /chalk@2.4.2:
