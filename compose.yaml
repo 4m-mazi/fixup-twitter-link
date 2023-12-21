@@ -3,6 +3,5 @@ services:
     image: fixup-twitter-link-bot
     container_name: fixup-twitter-link-bot
     build: .
-    pull_policy: always
+    pull_policy: build
     env_file: .env
-    restart: always
