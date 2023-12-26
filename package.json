@@ -33,7 +33,7 @@
     "@typescript-eslint/eslint-plugin": "6.15.0",
     "@typescript-eslint/parser": "6.15.0",
     "dotenv": "16.3.1",
-    "dprint": "0.44.0",
+    "dprint": "0.45.0",
     "eslint": "8.56.0",
     "eslint-config-prettier": "9.1.0",
     "jest": "29.7.0",
