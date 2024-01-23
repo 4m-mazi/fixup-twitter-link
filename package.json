@@ -16,7 +16,7 @@
     "sentry:sourcemaps": "sentry-cli sourcemaps inject --org mmmm-q0 --project fixup-twitter-link ./dist && sentry-cli sourcemaps upload --org mmmm-q0 --project fixup-twitter-link ./dist"
   },
   "license": "MIT",
-  "packageManager": "pnpm@8.14.1",
+  "packageManager": "pnpm@8.14.3",
   "engines": {
     "npm": "This project is configured to use pnpm"
   },
