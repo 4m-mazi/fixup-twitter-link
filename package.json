@@ -1,6 +1,6 @@
 {
   "name": "fixup-twitter-link",
-  "main": "dist/main.js",
+  "main": "dist/src/main.js",
   "type": "module",
   "scripts": {
     "start": "node .",
