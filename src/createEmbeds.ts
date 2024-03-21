@@ -6,12 +6,12 @@ const createDescription = ((tweet) => {
   if (tweet.quote !== undefined) {
     strings.push(
       [
-        `[${tweet.quote.author.name}(@${tweet.quote.author.screen_name}) <t:${tweet.quote.created_timestamp}:R>](${tweet.quote.url})`,
+        `[${tweet.quote.author.name}(@${tweet.quote.author.screen_name}) <t:${tweet.quote.created_timestamp.toString()}:R>](${tweet.quote.url})`,
         tweet.quote.text,
       ].join("\n").replaceAll(/^/gm, "> "),
     );
   }
-  strings.push(`[<t:${tweet.created_timestamp}:R>        ](${tweet.url})`); // モバイル版でタップする領域を確保するためにスペースが必要
+  strings.push(`[<t:${tweet.created_timestamp.toString()}:R>        ](${tweet.url})`); // モバイル版でタップする領域を確保するためにスペースが必要
   return strings.join("\n\n");
 }) satisfies (tweet: APITweet) => string;
 
@@ -24,7 +24,10 @@ export const createEmbeds = (async (
   );
 
   // match結果からidを取得
-  const ids = [...new Set(Array.from(TwitterOrXlinks, (match) => match.groups?.["id"]))];
+  // HACK
+  const ids = [
+    ...new Set(Array.from(TwitterOrXlinks, (match) => match.groups?.["id"]).filter((id) => id !== undefined)),
+  ] as string[];
   if (ids.length === 0) {
     return { embeds: [], fixupxLinks: [] };
   }
@@ -62,7 +65,8 @@ export const createEmbeds = (async (
           description: createDescription(tweet),
           color: 0x000,
           footer: {
-            text: `𝕏 - 返信 ${tweet.replies} · リポスト ${tweet.retweets} · いいね ${tweet.likes}`,
+            text:
+              `𝕏 - 返信 ${tweet.replies.toString()} · リポスト ${tweet.retweets.toString()} · いいね ${tweet.likes.toString()}`,
           },
           image: {
             url: tweet.media?.mosaic?.formats.webp

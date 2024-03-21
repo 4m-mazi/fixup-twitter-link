@@ -34,7 +34,7 @@ const handle = (async ({ interaction, api }) => {
     const referencedMessage = await api.channels.getMessage(
       message.message_reference.channel_id,
       message.message_reference.message_id,
-    ).catch((e) => {
+    ).catch((e: unknown) => {
       if (!(e instanceof DiscordAPIError && e.code === 10008)) throw e;
       return undefined;
     }) satisfies APIMessage | undefined;
