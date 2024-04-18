@@ -1,7 +1,6 @@
 services:
   fixup-twitter-link-bot:
     image: fixup-twitter-link-bot
-    container_name: fixup-twitter-link-bot
     build: .
     pull_policy: build
     env_file: .env
