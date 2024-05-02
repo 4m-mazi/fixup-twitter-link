@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@jest/globals": "29.7.0",
-    "@sentry/cli": "2.31.1",
+    "@sentry/cli": "2.31.2",
     "@swc/cli": "0.3.12",
     "@swc/core": "1.5.2",
     "@swc/helpers": "0.5.11",
