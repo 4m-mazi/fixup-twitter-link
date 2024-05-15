@@ -24,7 +24,7 @@
     "@jest/globals": "29.7.0",
     "@sentry/cli": "2.31.2",
     "@swc/cli": "0.3.12",
-    "@swc/core": "1.5.5",
+    "@swc/core": "1.5.7",
     "@swc/helpers": "0.5.11",
     "@swc/jest": "0.2.36",
     "@tsconfig/node20": "20.1.4",
