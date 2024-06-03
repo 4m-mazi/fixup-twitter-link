@@ -18,8 +18,8 @@ importers:
         specifier: 2.3.0
         version: 2.3.0
       '@discordjs/ws':
-        specifier: 1.1.0
-        version: 1.1.0
+        specifier: 1.1.1
+        version: 1.1.1
       '@sentry/node':
         specifier: 7.116.0
         version: 7.116.0
@@ -268,8 +268,8 @@ packages:
     resolution: {integrity: sha512-IndcI5hzlNZ7GS96RV3Xw1R2kaDuXEp7tRIy/KlhidpN/BQ1qh1NZt3377dMLTa44xDUNKT7hnXkA/oUAzD/lg==}
     engines: {node: '>=16.11.0'}
 
-  '@discordjs/ws@1.1.0':
-    resolution: {integrity: sha512-O97DIeSvfNTn5wz5vaER6ciyUsr7nOqSEtsLoMhhIgeFkhnxLRqSr00/Fpq2/ppLgjDGLbQCDzIK7ilGoB/M7A==}
+  '@discordjs/ws@1.1.1':
+    resolution: {integrity: sha512-PZ+vLpxGCRtmr2RMkqh8Zp+BenUaJqlS6xhgWKEZcgC/vfHLEzpHtKkB0sl3nZWpwtcKk6YWy+pU3okL2I97FA==}
     engines: {node: '>=16.11.0'}
 
   '@dprint/darwin-arm64@0.46.1':
@@ -2392,7 +2392,7 @@ snapshots:
     dependencies:
       '@discordjs/rest': 2.3.0
       '@discordjs/util': 1.1.0
-      '@discordjs/ws': 1.1.0
+      '@discordjs/ws': 1.1.1
       '@sapphire/snowflake': 3.5.3
       '@vladfrangu/async_event_emitter': 2.2.4
       discord-api-types: 0.37.83
@@ -2414,7 +2414,7 @@ snapshots:
 
   '@discordjs/util@1.1.0': {}
 
-  '@discordjs/ws@1.1.0':
+  '@discordjs/ws@1.1.1':
     dependencies:
       '@discordjs/collection': 2.1.0
       '@discordjs/rest': 2.3.0
