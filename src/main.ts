@@ -69,7 +69,7 @@ client.on(
     } catch (e) {
       Sentry.captureException(e);
     } finally {
-      transaction.finish();
+      transaction.end();
     }
   },
 );
