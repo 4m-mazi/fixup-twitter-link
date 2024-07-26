@@ -21,8 +21,12 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["(^|/)\\.npmrc$"],
-      "matchStrings": ["use-node-version=(?<currentValue>.*?)\\n"],
+      "fileMatch": [
+        "(^|/)\\.npmrc$"
+      ],
+      "matchStrings": [
+        "use-node-version=(?<currentValue>.*?)\\n"
+      ],
       "depNameTemplate": "node",
       "datasourceTemplate": "node-version"
     }
@@ -30,14 +34,30 @@
   "packageRules": [
     {
       "groupName": "discord.js monorepo",
-      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
-      "matchPackagePrefixes": ["@discordjs/"]
+      "matchUpdateTypes": [
+        "digest",
+        "patch",
+        "minor",
+        "major"
+      ],
+      "matchPackageNames": [
+        "@discordjs/{/,}**"
+      ]
     },
     {
-      "extends": ["monorepo:sentry-javascript"],
+      "extends": [
+        "monorepo:sentry-javascript"
+      ],
       "groupName": "sentry-javascript monorepo",
-      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
-      "matchPackagePrefixes": ["@sentry/"]
+      "matchUpdateTypes": [
+        "digest",
+        "patch",
+        "minor",
+        "major"
+      ],
+      "matchPackageNames": [
+        "@sentry/{/,}**"
+      ]
     }
   ]
 }
