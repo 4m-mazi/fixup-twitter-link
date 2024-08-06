@@ -21,6 +21,7 @@
     "npm": "This project is configured to use pnpm"
   },
   "devDependencies": {
+    "@eslint/js": "9.8.0",
     "@jest/globals": "29.7.0",
     "@sentry/cli": "2.33.1",
     "@swc/cli": "0.4.0",
@@ -30,14 +31,13 @@
     "@tsconfig/node20": "20.1.4",
     "@tsconfig/strictest": "2.0.5",
     "@types/node": "20.14.14",
-    "@typescript-eslint/eslint-plugin": "8.0.1",
-    "@typescript-eslint/parser": "8.0.1",
     "dotenv": "16.4.5",
     "dprint": "0.47.2",
-    "eslint": "8.57.0",
-    "eslint-config-prettier": "9.1.0",
+    "eslint": "9.8.0",
+    "globals": "15.9.0",
     "jest": "29.7.0",
-    "typescript": "5.5.4"
+    "typescript": "5.5.4",
+    "typescript-eslint": "8.0.1"
   },
   "dependencies": {
     "@discordjs/collection": "2.1.0",
