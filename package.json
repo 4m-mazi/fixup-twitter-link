@@ -17,9 +17,6 @@
   },
   "license": "MIT",
   "packageManager": "pnpm@9.5.0",
-  "engines": {
-    "npm": "This project is configured to use pnpm"
-  },
   "devDependencies": {
     "@eslint/js": "9.8.0",
     "@jest/globals": "29.7.0",
