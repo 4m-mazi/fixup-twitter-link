@@ -44,9 +44,4 @@ export default tslint.config(
       ],
     },
   },
-  {
-    // disable type-aware linting on JS files
-    files: ["**/*.js"],
-    ...tslint.configs.disableTypeChecked,
-  },
 );
