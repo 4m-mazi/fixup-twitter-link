@@ -54,6 +54,9 @@ importers:
       '@tsconfig/strictest':
         specifier: 2.0.5
         version: 2.0.5
+      '@types/eslint-config-prettier':
+        specifier: 6.11.3
+        version: 6.11.3
       '@types/eslint__js':
         specifier: 8.42.3
         version: 8.42.3
@@ -69,6 +72,9 @@ importers:
       eslint:
         specifier: 9.8.0
         version: 9.8.0
+      eslint-config-prettier:
+        specifier: 9.1.0
+        version: 9.1.0(eslint@9.8.0)
       globals:
         specifier: 15.9.0
         version: 15.9.0
@@ -826,6 +832,9 @@ packages:
   '@types/connect@3.4.36':
     resolution: {integrity: sha512-P63Zd/JUGq+PdrM1lv0Wv5SBYeA2+CORvbrXbngriYY0jzLUWfQMQQxOhjONEz/wlHOAxOdY7CY65rgQdTjq2w==}
 
+  '@types/eslint-config-prettier@6.11.3':
+    resolution: {integrity: sha512-3wXCiM8croUnhg9LdtZUJQwNcQYGWxxdOWDjPe1ykCqJFPVpzAKfs/2dgSoCtAvdPeaponcWPI7mPcGGp9dkKQ==}
+
   '@types/eslint@9.6.0':
     resolution: {integrity: sha512-gi6WQJ7cHRgZxtkQEoyHMppPjq9Kxo5Tjn2prSKDSmZrCz8TZ3jSRCeTJm+WoM+oB0WG37bRqLzaaU3q7JypGg==}
 
@@ -1261,6 +1270,12 @@ packages:
   escape-string-regexp@5.0.0:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
+
+  eslint-config-prettier@9.1.0:
+    resolution: {integrity: sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==}
+    hasBin: true
+    peerDependencies:
+      eslint: '>=7.0.0'
 
   eslint-scope@8.0.2:
     resolution: {integrity: sha512-6E4xmrTw5wtxnLA5wYL3WDfhZ/1bUBGOXV0zQvVRDOtrR8D0p6W7fs3JweNYhwRYeGvd/1CKX2se0/2s7Q/nJA==}
@@ -3379,6 +3394,8 @@ snapshots:
     dependencies:
       '@types/node': 20.14.14
 
+  '@types/eslint-config-prettier@6.11.3': {}
+
   '@types/eslint@9.6.0':
     dependencies:
       '@types/estree': 1.0.5
@@ -3850,6 +3867,10 @@ snapshots:
   escape-string-regexp@4.0.0: {}
 
   escape-string-regexp@5.0.0: {}
+
+  eslint-config-prettier@9.1.0(eslint@9.8.0):
+    dependencies:
+      eslint: 9.8.0
 
   eslint-scope@8.0.2:
     dependencies:

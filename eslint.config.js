@@ -1,6 +1,7 @@
 // @ts-check
 
 import js from "@eslint/js";
+import prettier from "eslint-config-prettier";
 import globals from "globals";
 import tslint from "typescript-eslint";
 
@@ -44,4 +45,5 @@ export default tslint.config(
       ],
     },
   },
+  prettier,
 );
