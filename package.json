@@ -40,9 +40,9 @@
     "typescript-eslint": "8.4.0"
   },
   "dependencies": {
-    "@discordjs/collection": "2.1.0",
+    "@discordjs/collection": "2.1.1",
     "@discordjs/core": "1.2.0",
-    "@discordjs/rest": "2.3.0",
+    "@discordjs/rest": "2.4.0",
     "@discordjs/ws": "1.1.1",
     "@sentry/node": "8.27.0",
     "@sentry/profiling-node": "8.27.0"
