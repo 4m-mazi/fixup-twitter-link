@@ -47,7 +47,7 @@ RUN --mount=type=cache,target=/.pnpm-store \
     --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
     pnpm install --frozen-lockfile --offline
 
-FROM gcr.io/distroless/cc-debian12:nonroot@sha256:eeb716b8a36ecf37992cb8f1e716a4b5737c086fd3bcbb08b5c9588ad5c8a701
+FROM gcr.io/distroless/cc-debian12:nonroot@sha256:22f73b1ae5f36035b2b832232dacf20ce770cc18a75f55b57162287def0af93a
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 ENV NODE_ENV="production"
