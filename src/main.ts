@@ -1,13 +1,13 @@
 import {
   type APIInteraction,
   type APIMessageApplicationCommandInteraction,
-  type APIMessageReferenceSend,
   ApplicationCommandType,
   Client,
   GatewayDispatchEvents,
   GatewayIntentBits,
   InteractionType,
   MessageFlags,
+  type RESTAPIMessageReference,
 } from "@discordjs/core";
 import { REST } from "@discordjs/rest";
 import { WebSocketManager } from "@discordjs/ws";
@@ -53,7 +53,7 @@ client.on(
       const ref = {
         channel_id: message.channel_id,
         message_id: message.id,
-      } satisfies APIMessageReferenceSend;
+      } satisfies RESTAPIMessageReference;
 
       await api.channels.createMessage(message.channel_id, {
         embeds: embeds,
