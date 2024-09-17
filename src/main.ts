@@ -55,17 +55,30 @@ client.on(
         message_id: message.id,
       } satisfies RESTAPIMessageReference;
 
-      await api.channels.createMessage(message.channel_id, {
-        embeds: embeds,
-        content: fixupxLinks.join(""),
-        message_reference: ref,
-        allowed_mentions: {
-          parse: [],
-          roles: [],
-          users: [],
-          replied_user: false,
-        },
-      });
+      if (fixupxLinks.length !== 0) {
+        await api.channels.createMessage(message.channel_id, {
+          content: fixupxLinks.join(""),
+          message_reference: ref,
+          allowed_mentions: {
+            parse: [],
+            roles: [],
+            users: [],
+            replied_user: false,
+          },
+        });
+      }
+      if (embeds.length !== 0) {
+        await api.channels.createMessage(message.channel_id, {
+          embeds: embeds,
+          message_reference: ref,
+          allowed_mentions: {
+            parse: [],
+            roles: [],
+            users: [],
+            replied_user: false,
+          },
+        });
+      }
     } catch (e) {
       Sentry.captureException(e);
     } finally {
