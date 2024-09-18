@@ -11,7 +11,7 @@ const createDescription = ((tweet) => {
       ].join("\n").replaceAll(/^/gm, "> "),
     );
   }
-  strings.push(`[<t:${tweet.created_timestamp.toString()}:R>        ](${tweet.url})`); // モバイル版でタップする領域を確保するためにスペースが必要
+  strings.push(`-# [<t:${tweet.created_timestamp.toString()}:R>        ](${tweet.url})`); // モバイル版でタップする領域を確保するためにスペースが必要
   return strings.join("\n\n");
 }) satisfies (tweet: APITweet) => string;
 

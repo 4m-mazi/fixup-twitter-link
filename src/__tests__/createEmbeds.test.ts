@@ -33,7 +33,7 @@ describe("fixup twitter link", () => {
     const expected: APIEmbed[] = [
       {
         description: "nodeわからん"
-          + `\n\n[<t:1697775688:R>        ](https://twitter.com/kcash510/status/1715221671974682986)`,
+          + `\n\n-# [<t:1697775688:R>        ](https://twitter.com/kcash510/status/1715221671974682986)`,
         color: 0x000,
         footer: {
           text: `𝕏 - 返信 0 · リポスト 0 · いいね 1`,
@@ -75,7 +75,7 @@ describe("fixup twitter link", () => {
             + "> 楽しかったなあ\n"
             + "> https://example.jp/songs\n"
             + "\n"
-            + "[<t:1699285014:R>        ](https://example.net/akira123/status/1234567890123456789)",
+            + "-# [<t:1699285014:R>        ](https://example.net/akira123/status/1234567890123456789)",
           color: 0,
           footer: { text: "𝕏 - 返信 0 · リポスト 0 · いいね 1" },
           image: { url: "" },
