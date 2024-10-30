@@ -37,8 +37,8 @@ importers:
         specifier: 2.38.0
         version: 2.38.0
       '@swc/cli':
-        specifier: 0.4.0
-        version: 0.4.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
+        specifier: 0.5.0
+        version: 0.5.0(@swc/core@1.7.40(@swc/helpers@0.5.13))
       '@swc/core':
         specifier: 1.7.40
         version: 1.7.40(@swc/helpers@0.5.13)
@@ -46,8 +46,8 @@ importers:
         specifier: 0.5.13
         version: 0.5.13
       '@swc/jest':
-        specifier: 0.2.36
-        version: 0.2.36(@swc/core@1.7.40(@swc/helpers@0.5.13))
+        specifier: 0.2.37
+        version: 0.2.37(@swc/core@1.7.40(@swc/helpers@0.5.13))
       '@tsconfig/node20':
         specifier: 20.1.4
         version: 20.1.4
@@ -884,8 +884,8 @@ packages:
   '@sinonjs/fake-timers@10.3.0':
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
 
-  '@swc/cli@0.4.0':
-    resolution: {integrity: sha512-4JdVrPtF/4rCMXp6Q1h5I6YkYZrCCcqod7Wk97ZQq7K8vNGzJUryBv4eHCvqx5sJOJBrbYm9fcswe1B0TygNoA==}
+  '@swc/cli@0.5.0':
+    resolution: {integrity: sha512-eFsrNt85SbHTeX6svpBNcA5DQLP/wrSyCs3KVZjbuEHWD7JGpajZOIwH74lVhyrmrXOcGxgbnxXEbDIfRlLcSw==}
     engines: {node: '>= 16.14.0'}
     hasBin: true
     peerDependencies:
@@ -970,8 +970,8 @@ packages:
   '@swc/helpers@0.5.13':
     resolution: {integrity: sha512-UoKGxQ3r5kYI9dALKJapMmuK+1zWM/H17Z1+iwnNmzcJRnfFuevZs375TA5rW31pu4BS4NoSy1fRsexDXfWn5w==}
 
-  '@swc/jest@0.2.36':
-    resolution: {integrity: sha512-8X80dp81ugxs4a11z1ka43FPhP+/e+mJNXJSxiNYk8gIX/jPBtY4gQTrKu/KIoco8bzKuPI5lUxjfLiGsfvnlw==}
+  '@swc/jest@0.2.37':
+    resolution: {integrity: sha512-CR2BHhmXKGxTiFr21DYPRHQunLkX3mNIFGFkxBGji6r9uyIR5zftTOVYj1e0sFNMV2H7mf/+vpaglqaryBtqfQ==}
     engines: {npm: '>= 7.0.0'}
     peerDependencies:
       '@swc/core': '*'
@@ -3532,7 +3532,7 @@ snapshots:
     dependencies:
       '@sinonjs/commons': 3.0.1
 
-  '@swc/cli@0.4.0(@swc/core@1.7.40(@swc/helpers@0.5.13))':
+  '@swc/cli@0.5.0(@swc/core@1.7.40(@swc/helpers@0.5.13))':
     dependencies:
       '@mole-inc/bin-wrapper': 8.0.1
       '@swc/core': 1.7.40(@swc/helpers@0.5.13)
@@ -3598,7 +3598,7 @@ snapshots:
     dependencies:
       tslib: 2.8.0
 
-  '@swc/jest@0.2.36(@swc/core@1.7.40(@swc/helpers@0.5.13))':
+  '@swc/jest@0.2.37(@swc/core@1.7.40(@swc/helpers@0.5.13))':
     dependencies:
       '@jest/create-cache-key-function': 29.7.0
       '@swc/core': 1.7.40(@swc/helpers@0.5.13)
