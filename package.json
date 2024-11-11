@@ -23,7 +23,7 @@
     "@sentry/cli": "2.38.2",
     "@swc/cli": "0.5.0",
     "@swc/core": "1.9.1",
-    "@swc/helpers": "0.5.13",
+    "@swc/helpers": "0.5.15",
     "@swc/jest": "0.2.37",
     "@tsconfig/node20": "20.1.4",
     "@tsconfig/strictest": "2.0.5",
