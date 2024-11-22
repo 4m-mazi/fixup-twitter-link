@@ -20,7 +20,7 @@
   "devDependencies": {
     "@eslint/js": "9.15.0",
     "@jest/globals": "29.7.0",
-    "@sentry/cli": "2.38.2",
+    "@sentry/cli": "2.39.0",
     "@swc/cli": "0.5.1",
     "@swc/core": "1.9.3",
     "@swc/helpers": "0.5.15",
