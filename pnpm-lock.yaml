@@ -37,8 +37,8 @@ importers:
         specifier: 2.39.1
         version: 2.39.1
       '@swc/cli':
-        specifier: 0.5.1
-        version: 0.5.1(@swc/core@1.9.3(@swc/helpers@0.5.15))
+        specifier: 0.5.2
+        version: 0.5.2(@swc/core@1.9.3(@swc/helpers@0.5.15))
       '@swc/core':
         specifier: 1.9.3
         version: 1.9.3(@swc/helpers@0.5.15)
@@ -908,8 +908,8 @@ packages:
   '@sinonjs/fake-timers@10.3.0':
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
 
-  '@swc/cli@0.5.1':
-    resolution: {integrity: sha512-sxSXyjqFImYrqjhZSPymjmM/9V6auZG67UsDwbe7FZaBlyfW8ka3QG/zRjpJJ9+8Ahns/kKb8bXPKQq7V2MtBw==}
+  '@swc/cli@0.5.2':
+    resolution: {integrity: sha512-ul2qIqjM5bfe9zWLqFDmHZCf9HXXSZZAlZLe4czn+lH4PewO+OWZnQcYCscnJKlbx6MuWjzXVR7gkspjNEJwJA==}
     engines: {node: '>= 16.14.0'}
     hasBin: true
     peerDependencies:
@@ -3586,7 +3586,7 @@ snapshots:
     dependencies:
       '@sinonjs/commons': 3.0.1
 
-  '@swc/cli@0.5.1(@swc/core@1.9.3(@swc/helpers@0.5.15))':
+  '@swc/cli@0.5.2(@swc/core@1.9.3(@swc/helpers@0.5.15))':
     dependencies:
       '@swc/core': 1.9.3(@swc/helpers@0.5.15)
       '@swc/counter': 0.1.3
