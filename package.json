@@ -18,7 +18,7 @@
   "license": "MIT",
   "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c",
   "devDependencies": {
-    "@eslint/js": "9.16.0",
+    "@eslint/js": "9.17.0",
     "@jest/globals": "29.7.0",
     "@sentry/cli": "2.39.1",
     "@swc/cli": "0.5.2",
@@ -32,7 +32,7 @@
     "@types/node": "22.10.2",
     "dotenv": "16.4.7",
     "dprint": "0.47.6",
-    "eslint": "9.16.0",
+    "eslint": "9.17.0",
     "eslint-config-prettier": "9.1.0",
     "globals": "15.13.0",
     "jest": "29.7.0",
