@@ -31,7 +31,7 @@
     "@types/eslint__js": "8.42.3",
     "@types/node": "22.10.2",
     "dotenv": "16.4.7",
-    "dprint": "0.47.6",
+    "dprint": "0.48.0",
     "eslint": "9.17.0",
     "eslint-config-prettier": "9.1.0",
     "globals": "15.14.0",
