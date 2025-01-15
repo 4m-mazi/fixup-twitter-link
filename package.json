@@ -45,8 +45,8 @@
     "@discordjs/core": "2.0.1",
     "@discordjs/rest": "2.4.2",
     "@discordjs/ws": "2.0.1",
-    "@sentry/node": "8.48.0",
-    "@sentry/profiling-node": "8.48.0"
+    "@sentry/node": "8.49.0",
+    "@sentry/profiling-node": "8.49.0"
   },
   "private": true
 }
