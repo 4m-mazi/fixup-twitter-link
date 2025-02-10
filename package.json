@@ -48,5 +48,13 @@
     "@sentry/node": "8.54.0",
     "@sentry/profiling-node": "8.54.0"
   },
-  "private": true
+  "private": true,
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@sentry/cli",
+      "@sentry/profiling-node",
+      "@swc/core",
+      "dprint"
+    ]
+  }
 }
