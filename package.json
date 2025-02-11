@@ -43,7 +43,7 @@
   "dependencies": {
     "@discordjs/collection": "2.1.1",
     "@discordjs/core": "2.0.1",
-    "@discordjs/rest": "2.4.2",
+    "@discordjs/rest": "2.4.3",
     "@discordjs/ws": "2.0.1",
     "@sentry/node": "9.0.0",
     "@sentry/profiling-node": "9.0.0"
