@@ -19,10 +19,11 @@ WORKDIR /package
 COPY --link --from=fetch-pnpm /pnpm/ /pnpm/
 RUN pnpm config set store-dir /.pnpm-store
 COPY --link .npmrc ./
+# hack?: pnpm.onlyBuiltDependenciesを読める必要がある
+COPY --link package.json ./
 RUN --mount=type=cache,target=/.pnpm-store \
     --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
     pnpm fetch
-COPY --link package.json ./
 
 FROM fetch-deps AS dev-deps
 RUN --mount=type=cache,target=/.pnpm-store \
