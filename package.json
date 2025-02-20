@@ -51,6 +51,7 @@
   "private": true,
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@sentry-internal/node-cpu-profiler",
       "@sentry/cli",
       "@sentry/profiling-node",
       "@swc/core",
