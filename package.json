@@ -29,7 +29,7 @@
     "@tsconfig/node22": "22.0.2",
     "@tsconfig/strictest": "2.0.5",
     "@types/node": "22.15.33",
-    "dotenv": "16.5.0",
+    "dotenv": "16.6.0",
     "dprint": "0.50.0",
     "eslint": "9.29.0",
     "eslint-config-prettier": "10.1.5",
