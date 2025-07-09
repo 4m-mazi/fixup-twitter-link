@@ -61,8 +61,8 @@ importers:
         specifier: 22.16.2
         version: 22.16.2
       dotenv:
-        specifier: 17.1.0
-        version: 17.1.0
+        specifier: 17.2.0
+        version: 17.2.0
       dprint:
         specifier: 0.50.1
         version: 0.50.1
@@ -1516,8 +1516,8 @@ packages:
   discord-api-types@0.38.15:
     resolution: {integrity: sha512-RX3skyRH7p6BlHOW62ztdnIc87+wv4TEJEURMir5k5BbRJ10wK1MCqFEO6USHTol3gkiHLE6wWoHhNQ2pqB4AA==}
 
-  dotenv@17.1.0:
-    resolution: {integrity: sha512-tG9VUTJTuju6GcXgbdsOuRhupE8cb4mRgY5JLRCh4MtGoVo3/gfGUtOMwmProM6d0ba2mCFvv+WrpYJV6qgJXQ==}
+  dotenv@17.2.0:
+    resolution: {integrity: sha512-Q4sgBT60gzd0BB0lSyYD3xM4YxrXA9y4uBDof1JNYGzOXrQdQ6yX+7XIAqoFOGQFOTK1D3Hts5OllpxMDZFONQ==}
     engines: {node: '>=12'}
 
   dprint@0.50.1:
@@ -4296,7 +4296,7 @@ snapshots:
 
   discord-api-types@0.38.15: {}
 
-  dotenv@17.1.0: {}
+  dotenv@17.2.0: {}
 
   dprint@0.50.1:
     optionalDependencies:
