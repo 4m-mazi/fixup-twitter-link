@@ -12,7 +12,7 @@ RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,from=fetch-jq,source=/jq,target=/mounted-bin/jq \
     curl -fsSL --compressed https://get.pnpm.io/install.sh | env PNPM_VERSION=$(cat package.json  | /mounted-bin/jq -r .packageManager | grep -oE '[0-9]+\.[0-9]+\.[0-9]+') sh -
 
-FROM ubuntu:devel@sha256:bfc3e22310bc1a229d62f497b158d213e7101347c184a40a44173cdfcaf603a9 AS fetch-deps
+FROM ubuntu:devel@sha256:a61c057b4f69200ecf031519a20db79b8683837ba1dc2a59458d333eb75b174d AS fetch-deps
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 WORKDIR /package
@@ -30,7 +30,7 @@ RUN --mount=type=cache,target=/.pnpm-store \
     --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
     pnpm install --frozen-lockfile --offline
 
-FROM ubuntu:devel@sha256:bfc3e22310bc1a229d62f497b158d213e7101347c184a40a44173cdfcaf603a9 AS builder
+FROM ubuntu:devel@sha256:a61c057b4f69200ecf031519a20db79b8683837ba1dc2a59458d333eb75b174d AS builder
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 WORKDIR /package
