@@ -16,7 +16,7 @@
     "sentry:sourcemaps": "sentry-cli sourcemaps inject --org mmmm-q0 --project fixup-twitter-link ./dist && sentry-cli sourcemaps upload --org mmmm-q0 --project fixup-twitter-link ./dist"
   },
   "license": "MIT",
-  "packageManager": "pnpm@10.12.4+sha512.5ea8b0deed94ed68691c9bad4c955492705c5eeb8a87ef86bc62c74a26b037b08ff9570f108b2e4dbd1dd1a9186fea925e527f141c648e85af45631074680184",
+  "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd",
   "devDependencies": {
     "@eslint/js": "9.38.0",
     "@jest/globals": "29.7.0",
