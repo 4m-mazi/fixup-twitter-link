@@ -27,7 +27,7 @@
     "@swc/helpers": "0.5.17",
     "@swc/jest": "0.2.39",
     "@tsconfig/node22": "22.0.2",
-    "@tsconfig/strictest": "2.0.6",
+    "@tsconfig/strictest": "2.0.7",
     "@types/node": "22.18.13",
     "dotenv": "17.2.3",
     "dprint": "0.50.2",
