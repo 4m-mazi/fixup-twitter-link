@@ -11,54 +11,36 @@
     ":pathSemanticCommitType(.github/workflows/**, ci)",
     ":prHourlyLimitNone",
     ":rebaseStalePrs",
-    ":semanticCommits",
     "customManagers:githubActionsVersions"
   ],
-  "automergeStrategy": "squash",
   "assignAutomerge": true,
   "assigneesFromCodeOwners": true,
   "dependencyDashboardAutoclose": true,
   "prConcurrentLimit": 3,
+  "reviewersFromCodeOwners": true,
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "https://deno.land/x/lume"
+      ],
+      "postUpgradeTasks": {
+        "commands": [
+          "curl -fsSL https://deno.land/install.sh | sh && export PATH=\"$HOME/.deno/bin:$PATH\"",
+          "deno task lume upgrade --version={{{newVersion}}}"
+        ]
+      }
+    }
+  ],
   "customManagers": [
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "/(^|/)\\.npmrc$/"
+        "/(^|/)deno\\.json$/"
       ],
       "matchStrings": [
-        "use-node-version=(?<currentValue>.*?)\\n"
+        "\".+?\"\\s*:\\s*\"(?<depName>https:\\/\\/deno\\.land\\/.+?)@(?<currentValue>.+?)(?:\\/.*)?\""
       ],
-      "depNameTemplate": "node",
-      "datasourceTemplate": "node-version"
-    }
-  ],
-  "packageRules": [
-    {
-      "groupName": "discord.js monorepo",
-      "matchUpdateTypes": [
-        "digest",
-        "patch",
-        "minor",
-        "major"
-      ],
-      "matchPackageNames": [
-        "@discordjs/{/,}**"
-      ]
-    },
-    {
-      "extends": [
-        "monorepo:sentry-javascript"
-      ],
-      "groupName": "sentry-javascript monorepo",
-      "matchUpdateTypes": [
-        "digest",
-        "patch",
-        "minor",
-        "major"
-      ],
-      "matchPackageNames": [
-        "@sentry/{/,}**"
-      ]
+      "datasourceTemplate": "deno"
     }
   ]
 }
