@@ -14,7 +14,7 @@ RUN --mount=type=bind,source=package.json,target=package.json \
     && curl -fsSL --compressed https://get.pnpm.io/install.sh | env PNPM_VERSION=$PNPM_VERSION sh - \
     && ln -s "$PNPM_HOME/.tools/pnpm-exe/$PNPM_VERSION/pnpm" "$PNPM_HOME/pnpm" -f
 
-FROM ubuntu:devel@sha256:91832dcd7bc5e44c098ecefc0a251a5c5d596dae494b33fb248e01b6840f8ce0 AS fetch-deps
+FROM ubuntu:devel@sha256:cc925e589b7543b910fea57a240468940003fbfc0515245a495dd0ad8fe7cef1 AS fetch-deps
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 WORKDIR /package
@@ -32,7 +32,7 @@ RUN --mount=type=cache,target=/.pnpm-store \
     --mount=type=bind,source=pnpm-lock.yaml,target=pnpm-lock.yaml \
     pnpm install --frozen-lockfile --offline
 
-FROM ubuntu:devel@sha256:91832dcd7bc5e44c098ecefc0a251a5c5d596dae494b33fb248e01b6840f8ce0 AS builder
+FROM ubuntu:devel@sha256:cc925e589b7543b910fea57a240468940003fbfc0515245a495dd0ad8fe7cef1 AS builder
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 WORKDIR /package
