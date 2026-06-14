@@ -40,9 +40,9 @@
   },
   "dependencies": {
     "@discordjs/collection": "2.1.1",
-    "@discordjs/core": "2.3.0",
-    "@discordjs/rest": "2.6.0",
-    "@discordjs/ws": "2.0.3",
+    "@discordjs/core": "2.4.0",
+    "@discordjs/rest": "2.6.1",
+    "@discordjs/ws": "2.0.4",
     "@sentry/node": "9.46.0",
     "@sentry/profiling-node": "9.46.0"
   },
