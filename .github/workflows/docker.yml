@@ -22,7 +22,7 @@ env:
   # renovate: datasource=github-releases depName=docker/buildx
   BUILDX_VERSION: v0.35.0
   # renovate: datasource=github-releases depName=moby/buildkit
-  BUILDKIT_VERSION: v0.30.0
+  BUILDKIT_VERSION: v0.31.1
 
 jobs:
   build-and-push-image:
