@@ -45,5 +45,5 @@ jobs:
       #   [read and write]
       #     repo: Contents
       # ──────────────────────────────────────────────────
-      app-id: ${{ vars.MAZI_TRIGGER_APP_ID }}
+      client-id: ${{ vars.MAZI_TRIGGER_CLIENT_ID }}
       private-key: ${{ secrets.MAZI_TRIGGER_PRIVATE_KEY }}
