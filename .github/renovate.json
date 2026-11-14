@@ -17,7 +17,9 @@
   "automergeStrategy": "squash",
   "assignAutomerge": true,
   "assigneesFromCodeOwners": true,
-  "dependencyDashboardAutoclose": true,
+  "dependencyDashboard": {
+    "autoclose": true
+  },
   "prConcurrentLimit": 3,
   "customManagers": [
     {
