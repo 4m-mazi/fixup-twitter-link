@@ -12,8 +12,8 @@ importers:
         specifier: 2.1.1
         version: 2.1.1
       '@discordjs/core':
-        specifier: 2.6.0
-        version: 2.6.0
+        specifier: 2.7.0
+        version: 2.7.0
       '@discordjs/rest':
         specifier: 2.6.3
         version: 2.6.3
@@ -259,8 +259,8 @@ packages:
     resolution: {integrity: sha512-LiSusze9Tc7qF03sLCujF5iZp7K+vRNEDBZ86FT9aQAv3vxMLihUvKvpsCWiQ2DJq1tVckopKm1rxomgNUc9hg==}
     engines: {node: '>=18'}
 
-  '@discordjs/core@2.6.0':
-    resolution: {integrity: sha512-rQ1Jvn4sMlFhfj3WMbtfQUBqDZ5/QEsH/HIHY+RQ/28rRyK/N95mEf/0Tp72ITKK0zdzoTSGo1AgZI/P5JnLBw==}
+  '@discordjs/core@2.7.0':
+    resolution: {integrity: sha512-Mvn1m1TdZrHA3q++EAE3FlStpxuaoPwCb8ZjFLN2/u6I+R5s/jab8FNw/cUT5WnHeEtgy0wXGbsQjKfB09aJbQ==}
     engines: {node: '>=20'}
 
   '@discordjs/rest@2.6.3':
@@ -3167,7 +3167,7 @@ snapshots:
 
   '@discordjs/collection@2.1.1': {}
 
-  '@discordjs/core@2.6.0':
+  '@discordjs/core@2.7.0':
     dependencies:
       '@discordjs/rest': 2.6.3
       '@discordjs/util': 1.2.0
