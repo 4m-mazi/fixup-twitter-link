@@ -28,7 +28,7 @@
     "@swc/jest": "0.2.39",
     "@tsconfig/node24": "24.0.6",
     "@tsconfig/strictest": "2.0.9",
-    "@types/node": "24.19.2",
+    "@types/node": "26.6.6",
     "dotenv": "18.0.10",
     "dprint": "0.64.3",
     "eslint": "9.39.5",
